@@ -43,8 +43,8 @@ class InstitutionsView(ListAPIView):
 
         if institution_name:
             queryset = queryset.filter(
-                Q(top_sellers__contains=[{'name': institution_name}]) |
-                Q(top_buyers__contains=[{'name': institution_name}])
+                Q(top_sellers__icontains=[{'name': institution_name}]) |
+                Q(top_buyers__icontains=[{'name': institution_name}])
             )               
         return queryset
 
